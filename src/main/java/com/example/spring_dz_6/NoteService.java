@@ -14,18 +14,22 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 
+    @TrackUserAction
     public Note addOrUpdate(Note note) {
         return noteRepository.save(note);
     }
 
+    @TrackUserAction
     public List<Note> getAllNotes() {
         return noteRepository.findAll();
     }
 
+    @TrackUserAction
     public Optional<Note> getNoteById(Long id) {
         return noteRepository.findById(id);
     }
 
+    @TrackUserAction
     public void deleteNoteById(Long id) {
         noteRepository.deleteById(id);
     }
